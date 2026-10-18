@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f4eddf">
+<meta name="description" content="STELIX — кофейня твоего настроения. Bubble tea, кофе, лимонады, чай, десерты и любимые напитки в Ташкенте.">
+<title>STELIX — Кофейня твоего настроения</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --cream:#f5eedf;
+  --paper:#fffaf0;
+  --orange:#e78343;
+  --orange-dark:#bd592b;
+  --green:#3f762e;
+  --teal:#258c96;
+  --ink:#24251f;
+  --muted:#77756b;
+  --line:#e4d8c4;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+img{max-width:100%;display:block}
+.container{width:min(1160px,90%);margin:auto}
+.serif{font-family:'Playfair Display',serif}
+.orange{color:var(--orange-dark)}
+.teal{color:var(--teal)}
+section{padding:100px 0}
+.eyebrow{font-size:10px;letter-spacing:3px;font-weight:800;text-transform:uppercase;color:var(--orange-dark)}
+h1,h2,h3{font-family:'Playfair Display',serif}
+h2{font-size:clamp(38px,5vw,64px);line-height:1.08}
+.section-head{text-align:center;margin-bottom:45px}
+.section-head p{max-width:550px;margin:15px auto 0;color:var(--muted);font-size:14px;line-height:1.9}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:50;background:#f5eedff0;backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.brand{display:flex;align-items:center;gap:11px}
+.brand img{width:51px;height:51px;object-fit:contain;border-radius:50%}
+.brand strong{font-size:16px;letter-spacing:3px}
+.brand small{display:block;font-size:9px;letter-spacing:2px;color:var(--muted);margin-top:3px}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a{font-size:12px;font-weight:700;transition:.2s}
+.nav-links a:hover{color:var(--orange-dark)}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:10px;padding:15px 23px;border:1px solid var(--orange);background:var(--orange);color:white;font-size:11px;font-weight:800;letter-spacing:.7px;cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 25px #bd592b27;background:var(--orange-dark)}
+.btn-outline{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-outline:hover{color:white;border-color:var(--orange-dark)}
+.menu-toggle{display:none;background:none;border:1px solid var(--line);padding:9px 12px;font-size:20px;cursor:pointer}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:85px 0 90px;background:radial-gradient(ellipse at 82% 40%,#e7bd8b66,transparent 45%),var(--cream)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+.hero h1{font-size:clamp(58px,8vw,104px);line-height:.98;letter-spacing:-3px;margin:22px 0}
+.hero h1 span{color:var(--orange-dark);font-style:italic}
+.hero-copy{max-width:470px;color:#69665c;line-height:2;font-size:14px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero-note{font-size:11px;color:var(--muted);margin-top:25px}
+.hero-art{position:relative;display:grid;place-items:center;min-height:410px}
+.logo-ring{width:min(100%,370px);aspect-ratio:1;border-radius:50%;background:#e9d9b8;border:1px solid #d8b98c;padding:13px;box-shadow:0 25px 65px #6c4a211a;animation:float 5s ease-in-out infinite}
+.logo-ring img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.sticker{position:absolute;right:0;bottom:25px;padding:18px 23px;background:var(--paper);border:1px solid var(--line);transform:rotate(4deg);box-shadow:0 12px 30px #6c4a2112}
+.sticker strong{font-family:'Playfair Display',serif;font-size:20px}
+.sticker small{display:block;font-size:9px;letter-spacing:2px;margin-top:4px}
+.hero-orbit{position:absolute;width:95%;aspect-ratio:1;border:1px dashed #d6a66c;border-radius:50%;pointer-events:none}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* STRIP */
+.strip{background:var(--green);color:white;overflow:hidden;padding:15px 0}
+.strip-track{display:flex;width:max-content;animation:marquee 28s linear infinite}
+.strip span{padding:0 25px;font-size:12px;font-weight:800;letter-spacing:3px}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* MENU */
+.menu-section{background:var(--paper)}
+.menu-top{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:30px}
+.menu-top p{font-size:12px;color:var(--muted);line-height:1.8;max-width:330px}
+.filters{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin:25px 0 35px}
+.filter{border:1px solid var(--line);background:transparent;color:var(--ink);padding:11px 17px;font-size:11px;font-weight:800;cursor:pointer;transition:.25s}
+.filter:hover,.filter.active{background:var(--ink);color:white;border-color:var(--ink)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.menu-card{position:relative;background:var(--cream);border:1px solid var(--line);padding:23px;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s;animation:cardIn .35s ease both}
+.menu-card:hover{transform:translateY(-5px);border-color:#d6a36e;box-shadow:0 12px 25px #6c4a210c}
+.menu-card-top{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.menu-icon{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#f0dfc4;font-size:21px}
+.menu-tag{font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--teal);font-weight:800}
+.menu-card h3{font-size:21px;margin:18px 0 8px}
+.menu-card p{font-size:11px;line-height:1.7;color:var(--muted);min-height:20px}
+.prices{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.price{padding:8px 10px;background:#fffaf0;border:1px solid var(--line);font-size:10px}
+.price b{display:block;font-size:12px;margin-top:3px}
+.price small{color:var(--muted)}
+.price.featured{background:#e4efdc;border-color:#d0dfc5}
+.price.iced{background:#e1f1f0;border-color:#c3e0df}
+.menu-card .add-note{font-size:9px;color:var(--muted);margin-top:13px}
+.menu-empty{text-align:center;padding:50px;color:var(--muted)}
+.menu-footnote{text-align:center;color:var(--muted);font-size:10px;line-height:1.8;margin-top:28px}
+@keyframes cardIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* FEATURE */
+.feature-section{background:#eee3d0}
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:65px}
+.feature-visual{min-height:390px;display:grid;place-items:center;position:relative;background:linear-gradient(145deg,#d9e6ce,#f4dfbd);overflow:hidden;border:1px solid #d8c9b0}
+.feature-visual::before,.feature-visual::after{content:"";position:absolute;border:1px solid #ffffff85;border-radius:50%;width:280px;height:280px}
+.feature-visual::after{width:340px;height:340px}
+.bubble-cups{display:flex;gap:20px;align-items:end;position:relative;z-index:1}
+.cup{width:105px;height:185px;border:3px solid #fffaf0;border-radius:20px 20px 27px 27px;background:linear-gradient(180deg,#f9d6b6,#dd8756);position:relative;box-shadow:0 15px 25px #66503624}
+.cup:nth-child(2){height:220px;background:linear-gradient(180deg,#d7e9c6,#73a76a)}
+.cup:nth-child(3){height:165px;background:linear-gradient(180deg,#f6e7bc,#d9aa50)}
+.cup::before{content:"";position:absolute;top:-9px;left:-5px;right:-5px;height:12px;background:#fffaf0;border:2px solid #fffaf0;border-radius:5px}
+.cup::after{content:"● ● ●";position:absolute;bottom:17px;left:0;right:0;text-align:center;color:#513a2a;font-size:13px;letter-spacing:3px}
+.feature-copy h2{margin:17px 0}
+.feature-copy p{font-size:13px;color:var(--muted);line-height:2}
+.feature-points{display:grid;gap:15px;margin:25px 0}
+.feature-point{display:flex;gap:12px;font-size:12px;align-items:center}
+.feature-point span{color:var(--green);font-weight:800;font-size:17px}
+
+/* ABOUT / LOCATION */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.about-copy h2{margin:18px 0}
+.about-copy p{font-size:13px;line-height:2;color:var(--muted);margin-bottom:13px}
+.about-pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.pill{border:1px solid var(--line);padding:10px 13px;font-size:10px;font-weight:700}
+.location-card{background:var(--paper);border:1px solid var(--line);padding:30px}
+.location-card h3{font-size:29px;margin:18px 0}
+.location-card p{font-size:12px;line-height:2;color:var(--muted)}
+.location-icon{font-size:32px}
+.location-buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:23px}
+.location-buttons .btn{padding:13px 8px;font-size:9px}
+
+/* CONTACT */
+.contact{background:var(--ink);color:white}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.contact h2{margin:18px 0}
+.contact-copy p{font-size:13px;line-height:2;color:#bdbbb2;max-width:460px}
+.contact-list{display:grid;gap:19px;margin-top:30px}
+.contact-item{display:flex;align-items:center;gap:15px}
+.contact-icon{width:43px;height:43px;display:grid;place-items:center;border:1px solid #555;border-radius:50%;font-size:17px}
+.contact-item small{display:block;color:#aaa;font-size:9px;letter-spacing:2px;margin-bottom:5px}
+.contact-item strong{font-size:12px}
+.contact-item a:hover{color:#f4bc87}
+.contact-panel{background:#303029;padding:32px;border:1px solid #4a4940}
+.contact-panel h3{font-size:32px;margin:16px 0}
+.contact-panel p{font-size:12px;color:#c5c1b6;line-height:1.9;margin-bottom:23px}
+.contact-panel .btn{width:100%;margin-top:10px}
+.contact-panel .btn-outline{border-color:#69675f;color:white}
+.contact-panel .btn-outline:hover{background:white;color:var(--ink)}
+
+/* FOOTER */
+footer{background:#1a1b17;color:white;padding:30px 0}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.footer-note{font-size:10px;color:#aaa;line-height:2}
+.footer-links{display:flex;gap:17px;flex-wrap:wrap}
+.footer-links a{font-size:10px;color:#ddd}
+.footer-links a:hover{color:#f4bc87}
+.back-top{position:fixed;right:18px;bottom:18px;z-index:30;width:43px;height:43px;border:0;background:var(--orange);color:white;font-size:20px;cursor:pointer;opacity:0;visibility:hidden;transition:.25s}
+.back-top.visible{opacity:1;visibility:visible}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
+.reveal.show{opacity:1;transform:none}
+
+@media(max-width:900px){
+ .nav-links{gap:14px}
+ .nav-links a{font-size:10px}
+ .hero-grid{gap:20px}
+ .menu-grid{grid-template-columns:repeat(2,1fr)}
+ .feature-grid,.about-grid,.contact-grid{gap:35px}
+}
+@media(max-width:680px){
+ section{padding:72px 0}
+ .nav{min-height:69px}
+ .brand img{width:43px;height:43px}
+ .brand strong{font-size:13px}
+ .nav>.btn{display:none}
+ .menu-toggle{display:block}
+ .nav-links{display:none;position:absolute;top:69px;left:0;right:0;background:var(--cream);padding:15px 5%;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}
+ .nav-links.open{display:flex}
+ .nav-links a{padding:14px 0;border-bottom:1px solid var(--line);font-size:12px}
+ .hero{padding:65px 0}
+ .hero-grid{grid-template-columns:1fr;gap:25px}
+ .hero h1{font-size:clamp(58px,15vw,85px)}
+ .hero-copy{font-size:12px}
+ .hero-art{min-height:310px}
+ .logo-ring{width:min(76vw,300px)}
+ .sticker{right:0;bottom:8px}
+ .menu-top{display:block}
+ .menu-top p{margin-top:12px}
+ .menu-grid{grid-template-columns:1fr}
+ .menu-card{padding:21px}
+ .feature-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+ .feature-visual{min-height:320px}
+ .cup{width:80px;height:155px}
+ .cup:nth-child(2){height:185px}
+ .cup:nth-child(3){height:140px}
+ .location-card{padding:24px}
+ .contact-panel{padding:24px}
+ .footer-inner{align-items:flex-start;flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+ .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+
+<body>
+<header>
+ <div class="container nav">
+  <a href="#home" class="brand">
+   <img src="logo.jpg" alt="STELIX">
+   <span><strong>STELIX</strong><small>COFFEE • BUBBLE TEA</small></span>
+  </a>
+  <nav class="nav-links" id="navLinks">
+   <a href="#home">Главная</a>
+   <a href="#menu">Меню</a>
+   <a href="#about">О нас</a>
+   <a href="#location">Где нас найти</a>
+  </nav>
+  <a href="tel:+998998376677" class="btn">Позвонить ↗</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">☰</button>
+ </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+ <div class="container hero-grid">
+  <div class="reveal show">
+   <span class="eyebrow">☕ КОФЕЙНЯ ТВОЕГО НАСТРОЕНИЯ</span>
+   <h1>ТВОЙ ДЕНЬ.<br><span>ТВОЙ ВКУС.</span><br>STELIX.</h1>
+   <p class="hero-copy">Bubble tea, ароматный кофе, освежающие лимонады и десерты для маленьких радостей каждый день. Найди свой любимый вкус.</p>
+   <div class="hero-actions">
+    <a class="btn" href="#menu">Открыть меню ↓</a>
+    <a class="btn btn-outline" href="https://go.2gis.com/DSauk" target="_blank" rel="noopener">Как нас найти ↗</a>
+   </div>
+   <p class="hero-note">🧋 Bubble Tea & любимые напитки</p>
+  </div>
+  <div class="hero-art">
+   <div class="hero-orbit"></div>
+   <div class="logo-ring"><img src="logo.jpg" alt="Логотип кофейни STELIX"></div>
+   <div class="sticker"><strong>Made for your mood ♡</strong><small>COFFEE · TEA · DESSERTS</small></div>
+  </div>
+ </div>
+</section>
+
+<div class="strip"><div class="strip-track">
+ <span>☕ COFFEE</span><span>🧋 BUBBLE TEA</span><span>🍋 LEMONADE</span><span>🍰 DESSERTS</span><span>♡ GOOD MOOD</span>
+ <span>☕ COFFEE</span><span>🧋 BUBBLE TEA</span><span>🍋 LEMONADE</span><span>🍰 DESSERTS</span><span>♡ GOOD MOOD</span>
+</div></div>
+
+<section class="menu-section" id="menu">
+ <div class="container">
+  <div class="section-head reveal">
+   <span class="eyebrow">НАШЕ МЕНЮ</span>
+   <h2>ЧТО ТЕБЕ <span class="orange">ПО ВКУСУ?</span></h2>
+   <p>Выбирай настроение — от фруктового bubble tea до классического кофе и сладких десертов.</p>
+  </div>
+
+  <div class="filters" id="filters">
+   <button class="filter active" data-filter="all">Всё меню</button>
+   <button class="filter" data-filter="milk">Milk Bubble Tea</button>
+   <button class="filter" data-filter="fruit">Fruit & Matcha</button>
+   <button class="filter" data-filter="coffee">Кофе</button>
+   <button class="filter" data-filter="tea">Чай</button>
+   <button class="filter" data-filter="lemonade">Лимонады</button>
+   <button class="filter" data-filter="dessert">Десерты</button>
+   <button class="filter" data-filter="food">Еда</button>
+  </div>
+
+  <div class="menu-grid" id="menuGrid"></div>
+  <p class="menu-footnote">Цены указаны в тысячах сумов (UZS). Размеры и доступность отдельных напитков уточняйте у кофейни.</p>
+ </div>
+</section>
+
+<section class="feature-section">
+ <div class="container feature-grid">
+  <div class="feature-visual reveal" aria-label="Иллюстрация bubble tea">
+   <div class="bubble-cups"><div class="cup"></div><div class="cup"></div><div class="cup"></div></div>
+  </div>
+  <div class="feature-copy reveal">
+   <span class="eyebrow">BUBBLE TEA & GOOD MOOD</span>
+   <h2>ГЛОТОК <span class="orange">РАДОСТИ.</span></h2>
+   <p>Фруктовые сочетания, молочный bubble tea и матча — выбери напиток под своё настроение.</p>
+   <div class="feature-points">
+    <div class="feature-point"><span>✳</span> Яркие фруктовые сочетания</div>
+    <div class="feature-point"><span>✳</span> Любимые молочные вкусы</div>
+    <div class="feature-point"><span>✳</span> Матча для нового настроения</div>
+   </div>
+   <a href="#menu" class="btn">Выбрать напиток ↗</a>
+  </div>
+ </div>
+</section>
+
+<section id="about">
+ <div class="container about-grid">
+  <div class="about-copy reveal">
+   <span class="eyebrow">HELLO, STELIX!</span>
+   <h2>МАЛЕНЬКАЯ ПАУЗА.<br><span class="orange">БОЛЬШОЕ НАСТРОЕНИЕ.</span></h2>
+   <p>STELIX — кофейня для встреч, коротких перерывов, любимых напитков и сладких моментов.</p>
+   <p>Забегай за кофе, выбирай свой bubble tea или устрой себе десертную паузу. Иногда хорошее настроение начинается с одного глотка.</p>
+   <div class="about-pills">
+    <span class="pill">☕ COFFEE</span>
+    <span class="pill">🧋 BUBBLE TEA</span>
+    <span class="pill">🍰 DESSERTS</span>
+    <span class="pill">🍋 LEMONADE</span>
+   </div>
+  </div>
+  <div class="location-card reveal" id="location">
+   <div class="location-icon">📍</div>
+   <span class="eyebrow">ЖДЁМ ТЕБЯ</span>
+   <h3>STELIX COFFEE</h3>
+   <p>Ташкент, Мирзо-Улугбекский район,<br>улица Сайрам, 43</p>
+   <div class="location-buttons">
+    <a class="btn" href="https://go.2gis.com/DSauk" target="_blank" rel="noopener">Открыть 2GIS ↗</a>
+    <a class="btn btn-outline" href="https://yandex.uz/maps/-/CXFGiD6C" target="_blank" rel="noopener">Яндекс Карты ↗</a>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="contact">
+ <div class="container contact-grid">
+  <div class="contact-copy reveal">
+   <span class="eyebrow">LET'S TALK</span>
+   <h2>ТВОЙ ЛЮБИМЫЙ<br><span style="color:#f2b27d">ВКУС ЖДЁТ.</span></h2>
+   <p>Есть вопросы по меню? Позвони нам или открой карту, чтобы построить маршрут до STELIX.</p>
+   <div class="contact-list">
+    <div class="contact-item"><div class="contact-icon">☎</div><div><small>Телефон</small><strong><a href="tel:+998998376677">+998 99 837 66 77</a></strong></div></div>
+    <div class="contact-item"><div class="contact-icon">⌖</div><div><small>Адрес</small><strong>Sayram street 43, Tashkent</strong></div></div>
+   </div>
+  </div>
+  <div class="contact-panel reveal">
+   <span class="eyebrow">YOUR COFFEE MOMENT</span>
+   <h3>Заглянешь сегодня?</h3>
+   <p>Выбирай любимый напиток и приходи за хорошим настроением.</p>
+   <a class="btn" href="tel:+998998376677">Позвонить в STELIX ↗</a>
+   <a class="btn btn-outline" href="https://go.2gis.com/DSauk" target="_blank" rel="noopener">Построить маршрут ↗</a>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="container footer-inner">
+  <a href="#home" class="brand"><img src="logo.jpg" alt="STELIX"><span><strong>STELIX</strong><small>COFFEE • BUBBLE TEA</small></span></a>
+  <p class="footer-note">© <span id="year"></span> STELIX COFFEE<br>Кофейня твоего настроения ☕</p>
+  <div class="footer-links">
+   <a href="#menu">МЕНЮ</a>
+   <a href="https://go.2gis.com/DSauk" target="_blank" rel="noopener">2GIS ↗</a>
+   <a href="https://yandex.uz/maps/-/CXFGiD6C" target="_blank" rel="noopener">ЯНДЕКС ↗</a>
+  </div>
+ </div>
+</footer>
+
+<button class="back-top" id="backTop" aria-label="Наверх">↑</button>
+
+<script>
+const menuItems = [
+ // MILK BUBBLE TEA
+ {cat:'milk',name:'Клубничный Чилл',icon:'🍓',desc:'Нежный клубничный вкус',l:35,xl:45,tag:'HOT / COLD',star:true},
+ {cat:'milk',name:'Киви Бум',icon:'🥝',desc:'Яркий вкус киви',l:35,xl:45,tag:'HOT / COLD',star:true},
+ {cat:'milk',name:'Дынный Чилл',icon:'🍈',desc:'Сладкая дынная свежесть',l:35,xl:45,tag:'HOT / COLD'},
+ {cat:'milk',name:'Гуава Парадайз',icon:'🍹',desc:'Тропическая гуава',l:35,xl:45,tag:'HOT / COLD'},
+ {cat:'milk',name:'Ананасовый Рай',icon:'🍍',desc:'Ананасовое настроение',l:40,xl:50,tag:'HOT / COLD'},
+ {cat:'milk',name:'Манго Мания',icon:'🥭',desc:'Сочное манго',l:40,xl:50,tag:'HOT / COLD'},
+ {cat:'milk',name:'Банановый Вайб',icon:'🍌',desc:'Мягкий банановый вкус',l:40,xl:50,tag:'HOT / COLD'},
+ {cat:'milk',name:'Черничная Ночь',icon:'🫐',desc:'Ягодный вкус черники',l:40,xl:50,tag:'HOT / COLD',star:true},
+ {cat:'milk',name:'Малиновый Драйв',icon:'🍓',desc:'Малина в каждом глотке',l:40,xl:50,tag:'HOT / COLD'},
+ {cat:'milk',name:'Орео Краш',icon:'🍪',desc:'Десертный вкус Oreo',l:55,xl:65,tag:'HOT / COLD',star:true},
+
+ // FRUIT AND MATCHA
+ {cat:'fruit',name:'Гуава-Маракуйя',icon:'🍊',desc:'Фруктовый микс',l:35,xl:45,tag:'FRUIT · COLD',star:true},
+ {cat:'fruit',name:'Лаймовый Киви',icon:'🥝',desc:'Цитрусовая свежесть',l:35,xl:45,tag:'FRUIT · COLD',star:true},
+ {cat:'fruit',name:'Манговый Рай',icon:'🥭',desc:'Тропический фруктовый вкус',l:35,xl:45,tag:'FRUIT · COLD'},
+ {cat:'fruit',name:'Эталон Матча',icon:'🍵',desc:'Матча для твоего настроения',l:45,xl:55,tag:'MATCHA · HOT / COLD',star:true},
+ {cat:'fruit',name:'Малиновый Рассвет',icon:'🍓',desc:'Матча с малиновыми нотами',l:50,xl:60,tag:'MATCHA · HOT / COLD'},
+ {cat:'fruit',name:'Киви Вайб',icon:'🥝',desc:'Освежающий вкус киви',l:50,xl:60,tag:'MATCHA · HOT / COLD',star:true},
+
+ // MOJITO / ICE TEA
+ {cat:'lemonade',name:'Мятный взрыв',icon:'🌿',desc:'Мохито / Ice tea',l:30,xl:45,tag:'MOJITO / ICE TEA'},
+ {cat:'lemonade',name:'Нежная клубника',icon:'🍓',desc:'Мохито / Ice tea',l:35,xl:45,tag:'MOJITO / ICE TEA'},
+ {cat:'lemonade',name:'Малина - Стайл',icon:'🍓',desc:'Мохито / Ice tea',l:35,xl:65,tag:'MOJITO / ICE TEA'},
+ {cat:'lemonade',name:'Ягодный сад',icon:'🫐',desc:'Мохито / Ice tea',l:35,xl:65,tag:'MOJITO / ICE TEA'},
+ {cat:'lemonade',name:'Энерджи-микс',icon:'🍋',desc:'Освежающий микс',l:40,xl:80,tag:'MOJITO / ICE TEA'},
+ {cat:'lemonade',name:'Киви',icon:'🥝',desc:'Лимонад',l:18,xl:20,tag:'LEMONADE'},
+ {cat:'lemonade',name:'Клубничный',icon:'🍓',desc:'Лимонад',l:18,xl:20,tag:'LEMONADE'},
+ {cat:'lemonade',name:'Манго-Маракуя',icon:'🥭',desc:'Лимонад',l:18,xl:20,tag:'LEMONADE'},
+
+ // COFFEE
+ {cat:'coffee',name:'Эспрессо',icon:'☕',desc:'Классический кофе',prices:[['S',18],['M',22]],tag:'COFFEE'},
+ {cat:'coffee',name:'Американо',icon:'☕',desc:'Насыщенный и ароматный',prices:[['S',20],['M',25],['ICE',30]],tag:'COFFEE'},
+ {cat:'coffee',name:'Капучино',icon:'☕',desc:'Эспрессо с молочной пеной',prices:[['S',25],['M',30],['ICE',35]],tag:'COFFEE'},
+ {cat:'coffee',name:'Латте',icon:'🥛',desc:'Мягкий кофе с молоком',prices:[['M',35],['ICE',40]],tag:'COFFEE'},
+ {cat:'coffee',name:'Флэт Уайт',icon:'☕',desc:'Кофе с бархатистой текстурой',prices:[['M',35]],tag:'COFFEE'},
+ {cat:'coffee',name:'Раф Кофе',icon:'☕',desc:'Нежный сливочный кофейный напиток',prices:[['M',40]],tag:'COFFEE'},
+
+ // NON-COFFEE
+ {cat:'coffee',name:'Горячий шоколад',icon:'🍫',desc:'Густой шоколадный напиток',prices:[['S',35],['M',40]],tag:'NON-COFFEE'},
+ {cat:'coffee',name:'Какао',icon:'🥛',desc:'Тёплый какао-напиток',prices:[['S',20],['M',25]],tag:'NON-COFFEE'},
+
+ // HOT TEA
+ {cat:'tea',name:'Классика жанра',icon:'🫖',desc:'Чёрный / зелёный чай',prices:[['To Go',10],['Teapot',15]],tag:'HOT TEA'},
+ {cat:'tea',name:'Жасминовый шёпот',icon:'🌼',desc:'Чай с жасмином',prices:[['To Go',15],['Teapot',20]],tag:'HOT TEA'},
+ {cat:'tea',name:'Цитрусовый костёр',icon:'🍋',desc:'Чай с лимоном',prices:[['To Go',15],['Teapot',20]],tag:'HOT TEA'},
+ {cat:'tea',name:'Имбирный уют',icon:'🫚',desc:'Чай с имбирём',prices:[['To Go',30],['Teapot',40]],tag:'HOT TEA'},
+ {cat:'tea',name:'Дыхание Марракеша',icon:'🌿',desc:'Чай с корицей',prices:[['To Go',30],['Teapot',40]],tag:'HOT TEA'},
+ {cat:'tea',name:'Тихий Вечер',icon:'🌙',desc:'Успокаивающий чай с травами',prices:[['To Go',35],['Teapot',45]],tag:'HOT TEA'},
+ {cat:'tea',name:'Ягодный плед',icon:'🫐',desc:'Чай с ягодами',prices:[['To Go',35],['Teapot',45]],tag:'HOT TEA'},
+ {cat:'tea',name:'Забота с малиной',icon:'🍓',desc:'Чай с малиной',prices:[['To Go',35],['Teapot',45]],tag:'HOT TEA'},
+ {cat:'tea',name:'Клубничный камин',icon:'🍓',desc:'Чай с клубникой',prices:[['To Go',35],['Teapot',45]],tag:'HOT TEA'},
+
+ // DESSERTS
+ {cat:'dessert',name:'Медовик',icon:'🍯',desc:'Классический или фисташковый',fixed:35,tag:'DESSERT'},
+ {cat:'dessert',name:'Гонконгская вафля',icon:'🧇',desc:'Клубника +10, банан +10, банан-клубника +20',fixed:40,tag:'DESSERT'},
+ {cat:'dessert',name:'Рулет «Меренговый»',icon:'🍰',desc:'Нежный меренговый десерт',fixed:42,tag:'DESSERT'},
+ {cat:'dessert',name:'Чизкейк',icon:'🍰',desc:'Клубничный, брауни, фисташковый, Lotus, Oreo, вишня',fixed:43,tag:'DESSERT'},
+ {cat:'dessert',name:'Сан Себастьян',icon:'🍮',desc:'Классик, фисташка, шоколад',fixed:45,tag:'DESSERT'},
+
+ // FOOD
+ {cat:'food',name:'Сэндвич',icon:'🥪',desc:'Колбаса, индейка или комбо',fixed:25,tag:'GRAB & GO'},
+ {cat:'food',name:'Гамбургер',icon:'🍔',desc:'Grab & Go',fixed:25,tag:'GRAB & GO'},
+ {cat:'food',name:'Хот-дог',icon:'🌭',desc:'Grab & Go',fixed:25,tag:'GRAB & GO'},
+ {cat:'food',name:'Печенье',icon:'🍪',desc:'Сладкий перекус',fixed:25,tag:'GRAB & GO'}
+];
+
+const grid = document.getElementById('menuGrid');
+const filters = document.getElementById('filters');
+
+function formatPrice(value){return value + ' 000';}
+
+function renderMenu(category='all'){
+  const items = menuItems.filter(item=>category==='all'||item.cat===category);
+  grid.innerHTML = '';
+
+  if(!items.length){
+    grid.innerHTML='<div class="menu-empty">В этой категории пока нет позиций.</div>';
+    return;
+  }
+
+  items.forEach((item,index)=>{
+    const prices = item.prices
+      ? item.prices.map(([label,value])=>`
+        <span class="price ${label==='ICE'?'iced':''}">
+          <small>${label}</small><b>${formatPrice(value)}</b>
+        </span>`).join('')
+      : item.fixed
+      ? `<span class="price featured"><small>Цена</small><b>${formatPrice(item.fixed)} сум</b></span>`
+      : `
+        <span class="price"><small>L</small><b>${formatPrice(item.l)}</b></span>
+        <span class="price"><small>XL</small><b>${formatPrice(item.xl)}</b></span>`;
+
+    const card=document.createElement('article');
+    card.className='menu-card';
+    card.style.animationDelay=(index%6)*35+'ms';
+    card.innerHTML=`
+      <div class="menu-card-top">
+        <div class="menu-icon">${item.icon}</div>
+        <span class="menu-tag">${item.tag}${item.star?' · ★':''}</span>
+      </div>
+      <h3>${item.name}</h3>
+      <p>${item.desc}</p>
+      <div class="prices">${prices}</div>
+      ${item.cat==='milk'||item.cat==='fruit'?'<div class="add-note">★ — отмеченные позиции в оригинальном меню</div>':''}
+    `;
+    grid.appendChild(card);
+  });
+}
+
+filters.querySelectorAll('button').forEach(button=>{
+  button.addEventListener('click',()=>{
+    filters.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+    button.classList.add('active');
+    renderMenu(button.dataset.filter);
+  });
+});
+
+renderMenu();
+
+// Mobile menu
+const menuToggle=document.getElementById('menuToggle');
+const navLinks=document.getElementById('navLinks');
+
+menuToggle.addEventListener('click',()=>{
+  const open=navLinks.classList.toggle('open');
+  menuToggle.textContent=open?'✕':'☰';
+  menuToggle.setAttribute('aria-expanded',String(open));
+});
+
+navLinks.querySelectorAll('a').forEach(link=>{
+  link.addEventListener('click',()=>{
+    navLinks.classList.remove('open');
+    menuToggle.textContent='☰';
+    menuToggle.setAttribute('aria-expanded','false');
+  });
+});
+
+// Scroll animations
+const revealItems=document.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:.12});
+  revealItems.forEach(item=>{
+    if(!item.classList.contains('show')) observer.observe(item);
+  });
+}else{
+  revealItems.forEach(item=>item.classList.add('show'));
+}
+
+// Back to top and header
+const backTop=document.getElementById('backTop');
+window.addEventListener('scroll',()=>{
+  backTop.classList.toggle('visible',window.scrollY>400);
+},{passive:true});
+backTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
