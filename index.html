@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -53,6 +52,8 @@ header{position:sticky;top:0;z-index:50;background:#f5eedff0;backdrop-filter:blu
 .btn:hover{transform:translateY(-3px);box-shadow:0 10px 25px #bd592b27;background:var(--orange-dark)}
 .btn-outline{background:transparent;color:var(--ink);border-color:var(--line)}
 .btn-outline:hover{color:white;border-color:var(--orange-dark)}
+.btn-instagram{background:#fffaf0;color:var(--ink);border-color:#d9bca1}
+.btn-instagram:hover{background:#f3e2d1;color:var(--ink);border-color:var(--orange-dark)}
 .menu-toggle{display:none;background:none;border:1px solid var(--line);padding:9px 12px;font-size:20px;cursor:pointer}
 
 /* HERO */
@@ -148,63 +149,70 @@ header{position:sticky;top:0;z-index:50;background:#f5eedff0;backdrop-filter:blu
 .contact-item a:hover{color:#f4bc87}
 .contact-panel{background:#303029;padding:32px;border:1px solid #4a4940}
 .contact-panel h3{font-size:32px;margin:16px 0}
-.contact-panel p{font-size:12px;color:#c5c1b6;line-height:1.9;margin-bottom:23px}
-.contact-panel .btn{width:100%;margin-top:10px}
-.contact-panel .btn-outline{border-color:#69675f;color:white}
-.contact-panel .btn-outline:hover{background:white;color:var(--ink)}
+.contact-panel p{font-size:12px;color:#c5c1b6;line-height:2;margin-bottom:25px}
+.contact-panel .btn{margin:0 7px 8px 0}
 
 /* FOOTER */
-footer{background:#1a1b17;color:white;padding:30px 0}
-.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-.footer-note{font-size:10px;color:#aaa;line-height:2}
-.footer-links{display:flex;gap:17px;flex-wrap:wrap}
-.footer-links a{font-size:10px;color:#ddd}
-.footer-links a:hover{color:#f4bc87}
-.back-top{position:fixed;right:18px;bottom:18px;z-index:30;width:43px;height:43px;border:0;background:var(--orange);color:white;font-size:20px;cursor:pointer;opacity:0;visibility:hidden;transition:.25s}
-.back-top.visible{opacity:1;visibility:visible}
+footer{background:var(--ink);color:white;border-top:1px solid #45453d;padding:28px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:25px}
+.footer-note{font-size:10px;color:#aaa;line-height:1.8;text-align:center}
+.footer-links{display:flex;gap:20px}
+.footer-links a{font-size:9px;letter-spacing:1px;color:#c5c1b6}
+.footer-links a:hover{color:white}
+.back-top{position:fixed;right:22px;bottom:22px;width:45px;height:45px;border:0;background:var(--orange);color:white;font-size:22px;cursor:pointer;z-index:40;opacity:0;pointer-events:none;transform:translateY(10px);transition:.25s}
+.back-top.visible{opacity:1;pointer-events:auto;transform:translateY(0)}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
-.reveal.show{opacity:1;transform:none}
+.reveal.show{opacity:1;transform:translateY(0)}
 
 @media(max-width:900px){
- .nav-links{gap:14px}
- .nav-links a{font-size:10px}
- .hero-grid{gap:20px}
- .menu-grid{grid-template-columns:repeat(2,1fr)}
- .feature-grid,.about-grid,.contact-grid{gap:35px}
+  .nav-links{gap:14px}
+  .nav-links a{font-size:10px}
+  .hero-grid{gap:25px}
+  .hero h1{font-size:clamp(55px,8vw,78px)}
+  .menu-grid{grid-template-columns:repeat(2,1fr)}
+  .feature-grid,.about-grid,.contact-grid{gap:35px}
 }
-@media(max-width:680px){
- section{padding:72px 0}
- .nav{min-height:69px}
- .brand img{width:43px;height:43px}
- .brand strong{font-size:13px}
- .nav>.btn{display:none}
- .menu-toggle{display:block}
- .nav-links{display:none;position:absolute;top:69px;left:0;right:0;background:var(--cream);padding:15px 5%;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}
- .nav-links.open{display:flex}
- .nav-links a{padding:14px 0;border-bottom:1px solid var(--line);font-size:12px}
- .hero{padding:65px 0}
- .hero-grid{grid-template-columns:1fr;gap:25px}
- .hero h1{font-size:clamp(58px,15vw,85px)}
- .hero-copy{font-size:12px}
- .hero-art{min-height:310px}
- .logo-ring{width:min(76vw,300px)}
- .sticker{right:0;bottom:8px}
- .menu-top{display:block}
- .menu-top p{margin-top:12px}
- .menu-grid{grid-template-columns:1fr}
- .menu-card{padding:21px}
- .feature-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
- .feature-visual{min-height:320px}
- .cup{width:80px;height:155px}
- .cup:nth-child(2){height:185px}
- .cup:nth-child(3){height:140px}
- .location-card{padding:24px}
- .contact-panel{padding:24px}
- .footer-inner{align-items:flex-start;flex-direction:column}
+@media(max-width:700px){
+  section{padding:70px 0}
+  .nav{min-height:68px;gap:10px}
+  .brand img{width:42px;height:42px}
+  .brand strong{font-size:14px}
+  .brand small{font-size:8px}
+  .menu-toggle{display:block;margin-left:auto}
+  .nav-links{display:none;position:absolute;top:68px;left:0;right:0;padding:22px 5%;background:var(--cream);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:13px 0;font-size:13px;border-bottom:1px solid var(--line)}
+  .nav>.btn{padding:11px 12px;font-size:9px}
+  .hero{padding:55px 0 60px}
+  .hero-grid{grid-template-columns:1fr;gap:25px}
+  .hero h1{font-size:clamp(55px,15vw,82px);letter-spacing:-2px}
+  .hero-copy{font-size:13px}
+  .hero-art{min-height:300px}
+  .logo-ring{width:min(75%,300px)}
+  .sticker{right:2%;bottom:10px;padding:13px 17px}
+  .sticker strong{font-size:17px}
+  .menu-top{display:block}
+  .menu-top p{margin-top:15px}
+  .menu-grid{grid-template-columns:1fr}
+  .menu-card{padding:21px}
+  .feature-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+  .feature-visual{min-height:320px}
+  .bubble-cups{gap:12px}
+  .cup{width:82px;height:155px}
+  .cup:nth-child(2){height:185px}
+  .cup:nth-child(3){height:140px}
+  .location-buttons{grid-template-columns:1fr 1fr}
+  .contact-panel{padding:25px}
+  .footer-inner{flex-direction:column;text-align:center}
+  .footer-links{justify-content:center}
+}
+@media(max-width:390px){
+  .nav>.btn{display:none}
+  .hero-actions .btn{width:100%}
+  .location-buttons{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){
- *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
- .reveal{opacity:1;transform:none}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
 }
 </style>
 </head>
@@ -216,82 +224,96 @@ footer{background:#1a1b17;color:white;padding:30px 0}
    <img src="logo.jpg" alt="STELIX">
    <span><strong>STELIX</strong><small>COFFEE • BUBBLE TEA</small></span>
   </a>
+
   <nav class="nav-links" id="navLinks">
-   <a href="#home">Главная</a>
-   <a href="#menu">Меню</a>
-   <a href="#about">О нас</a>
-   <a href="#location">Где нас найти</a>
+   <a href="#menu">МЕНЮ</a>
+   <a href="#about">О НАС</a>
+   <a href="#location">ГДЕ МЫ</a>
+   <a href="#contact">КОНТАКТЫ</a>
   </nav>
-  <a href="tel:+998998376677" class="btn">Позвонить ↗</a>
-  <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">☰</button>
+
+  <a href="https://www.instagram.com/stelix.drinks/" class="btn btn-instagram" target="_blank" rel="noopener noreferrer" aria-label="Открыть Instagram STELIX">Instagram ↗</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
  </div>
 </header>
 
 <main>
 <section class="hero" id="home">
  <div class="container hero-grid">
-  <div class="reveal show">
-   <span class="eyebrow">☕ КОФЕЙНЯ ТВОЕГО НАСТРОЕНИЯ</span>
-   <h1>ТВОЙ ДЕНЬ.<br><span>ТВОЙ ВКУС.</span><br>STELIX.</h1>
-   <p class="hero-copy">Bubble tea, ароматный кофе, освежающие лимонады и десерты для маленьких радостей каждый день. Найди свой любимый вкус.</p>
+  <div class="hero-copy-wrap reveal">
+   <span class="eyebrow">COFFEE · BUBBLE TEA · GOOD MOOD</span>
+   <h1>Твой день.<br>Твой <span>STELIX.</span></h1>
+   <p class="hero-copy">Место, где встречаются любимый кофе, яркий bubble tea и маленькие радости. Выбирай настроение — мы приготовим напиток.</p>
+
    <div class="hero-actions">
-    <a class="btn" href="#menu">Открыть меню ↓</a>
-    <a class="btn btn-outline" href="https://go.2gis.com/DSauk" target="_blank" rel="noopener">Как нас найти ↗</a>
+    <a class="btn" href="#menu">СМОТРЕТЬ МЕНЮ ↓</a>
+    <a class="btn btn-outline" href="#location">НАЙТИ НАС ↗</a>
+    <a class="btn btn-instagram" href="https://www.instagram.com/stelix.drinks/" target="_blank" rel="noopener noreferrer">Instagram STELIX ↗</a>
    </div>
-   <p class="hero-note">🧋 Bubble Tea & любимые напитки</p>
+
+   <p class="hero-note">☕ Сделай паузу. Почувствуй момент. Наслаждайся.</p>
   </div>
-  <div class="hero-art">
+
+  <div class="hero-art reveal">
    <div class="hero-orbit"></div>
-   <div class="logo-ring"><img src="logo.jpg" alt="Логотип кофейни STELIX"></div>
-   <div class="sticker"><strong>Made for your mood ♡</strong><small>COFFEE · TEA · DESSERTS</small></div>
+   <div class="logo-ring"><img src="logo.jpg" alt="Логотип STELIX"></div>
+   <div class="sticker"><strong>sip happens ✨</strong><small>TAKE A LITTLE BREAK</small></div>
   </div>
  </div>
 </section>
 
-<div class="strip"><div class="strip-track">
- <span>☕ COFFEE</span><span>🧋 BUBBLE TEA</span><span>🍋 LEMONADE</span><span>🍰 DESSERTS</span><span>♡ GOOD MOOD</span>
- <span>☕ COFFEE</span><span>🧋 BUBBLE TEA</span><span>🍋 LEMONADE</span><span>🍰 DESSERTS</span><span>♡ GOOD MOOD</span>
-</div></div>
+<div class="strip">
+ <div class="strip-track">
+  <span>GOOD COFFEE</span><span>GOOD MOOD</span><span>BUBBLE TEA</span><span>YOUR DAILY RITUAL</span><span>GOOD COFFEE</span><span>GOOD MOOD</span><span>BUBBLE TEA</span><span>YOUR DAILY RITUAL</span>
+ </div>
+</div>
 
 <section class="menu-section" id="menu">
  <div class="container">
   <div class="section-head reveal">
-   <span class="eyebrow">НАШЕ МЕНЮ</span>
-   <h2>ЧТО ТЕБЕ <span class="orange">ПО ВКУСУ?</span></h2>
-   <p>Выбирай настроение — от фруктового bubble tea до классического кофе и сладких десертов.</p>
+   <span class="eyebrow">FIND YOUR FAVORITE</span>
+   <h2>Меню <span class="orange">STELIX</span></h2>
+   <p>От фруктового bubble tea до классического капучино. Выбирай свой вкус и настроение.</p>
   </div>
 
   <div class="filters" id="filters">
-   <button class="filter active" data-filter="all">Всё меню</button>
-   <button class="filter" data-filter="milk">Milk Bubble Tea</button>
-   <button class="filter" data-filter="fruit">Fruit & Matcha</button>
-   <button class="filter" data-filter="coffee">Кофе</button>
-   <button class="filter" data-filter="tea">Чай</button>
-   <button class="filter" data-filter="lemonade">Лимонады</button>
-   <button class="filter" data-filter="dessert">Десерты</button>
-   <button class="filter" data-filter="food">Еда</button>
+   <button class="filter active" data-filter="all">ВСЁ МЕНЮ</button>
+   <button class="filter" data-filter="milk">MILK BUBBLE TEA</button>
+   <button class="filter" data-filter="fruit">FRUIT & MATCHA</button>
+   <button class="filter" data-filter="lemonade">ЛИМОНАДЫ</button>
+   <button class="filter" data-filter="coffee">КОФЕ</button>
+   <button class="filter" data-filter="tea">ЧАЙ</button>
+   <button class="filter" data-filter="dessert">ДЕСЕРТЫ</button>
+   <button class="filter" data-filter="food">ПЕРЕКУСЫ</button>
   </div>
 
   <div class="menu-grid" id="menuGrid"></div>
-  <p class="menu-footnote">Цены указаны в тысячах сумов (UZS). Размеры и доступность отдельных напитков уточняйте у кофейни.</p>
+  <p class="menu-footnote">Цены указаны в тысячах сумов. Ассортимент и наличие уточняйте в кофейне.</p>
  </div>
 </section>
 
 <section class="feature-section">
  <div class="container feature-grid">
-  <div class="feature-visual reveal" aria-label="Иллюстрация bubble tea">
-   <div class="bubble-cups"><div class="cup"></div><div class="cup"></div><div class="cup"></div></div>
-  </div>
-  <div class="feature-copy reveal">
-   <span class="eyebrow">BUBBLE TEA & GOOD MOOD</span>
-   <h2>ГЛОТОК <span class="orange">РАДОСТИ.</span></h2>
-   <p>Фруктовые сочетания, молочный bubble tea и матча — выбери напиток под своё настроение.</p>
-   <div class="feature-points">
-    <div class="feature-point"><span>✳</span> Яркие фруктовые сочетания</div>
-    <div class="feature-point"><span>✳</span> Любимые молочные вкусы</div>
-    <div class="feature-point"><span>✳</span> Матча для нового настроения</div>
+  <div class="feature-visual reveal">
+   <div class="bubble-cups">
+    <div class="cup"></div>
+    <div class="cup"></div>
+    <div class="cup"></div>
    </div>
-   <a href="#menu" class="btn">Выбрать напиток ↗</a>
+  </div>
+
+  <div class="feature-copy reveal">
+   <span class="eyebrow">A LITTLE HAPPINESS</span>
+   <h2>Настроение<br>в каждом <span class="orange">глотке.</span></h2>
+   <p>Яркий bubble tea, освежающие лимонады, любимый кофе и уютные десерты — всё для твоей маленькой паузы посреди большого дня.</p>
+
+   <div class="feature-points">
+    <div class="feature-point"><span>✦</span> Напитки на любой вкус</div>
+    <div class="feature-point"><span>✦</span> Холодные и горячие варианты</div>
+    <div class="feature-point"><span>✦</span> Сладкое к любимому напитку</div>
+   </div>
+
+   <a class="btn" href="#menu">ВЫБРАТЬ НАПИТОК ↗</a>
   </div>
  </div>
 </section>
@@ -299,47 +321,61 @@ footer{background:#1a1b17;color:white;padding:30px 0}
 <section id="about">
  <div class="container about-grid">
   <div class="about-copy reveal">
-   <span class="eyebrow">HELLO, STELIX!</span>
-   <h2>МАЛЕНЬКАЯ ПАУЗА.<br><span class="orange">БОЛЬШОЕ НАСТРОЕНИЕ.</span></h2>
-   <p>STELIX — кофейня для встреч, коротких перерывов, любимых напитков и сладких моментов.</p>
-   <p>Забегай за кофе, выбирай свой bubble tea или устрой себе десертную паузу. Иногда хорошее настроение начинается с одного глотка.</p>
+   <span class="eyebrow">MORE THAN COFFEE</span>
+   <h2>Твоя маленькая<br><span class="orange">традиция.</span></h2>
+   <p>STELIX — это место, куда можно забежать за любимым кофе, встретиться с друзьями за bubble tea или просто немного замедлиться.</p>
+   <p>Мы верим, что хорошее настроение часто начинается с простых вещей: любимого вкуса, приятной компании и минуты для себя.</p>
+
    <div class="about-pills">
     <span class="pill">☕ COFFEE</span>
     <span class="pill">🧋 BUBBLE TEA</span>
-    <span class="pill">🍰 DESSERTS</span>
     <span class="pill">🍋 LEMONADE</span>
+    <span class="pill">🍰 DESSERTS</span>
    </div>
   </div>
+
   <div class="location-card reveal" id="location">
    <div class="location-icon">📍</div>
-   <span class="eyebrow">ЖДЁМ ТЕБЯ</span>
-   <h3>STELIX COFFEE</h3>
+   <span class="eyebrow">COME SAY HI</span>
+   <h3>Ждём тебя<br>в STELIX</h3>
    <p>Ташкент, Мирзо-Улугбекский район,<br>улица Сайрам, 43</p>
    <div class="location-buttons">
-    <a class="btn" href="https://go.2gis.com/DSauk" target="_blank" rel="noopener">Открыть 2GIS ↗</a>
-    <a class="btn btn-outline" href="https://yandex.uz/maps/-/CXFGiD6C" target="_blank" rel="noopener">Яндекс Карты ↗</a>
+    <a class="btn" href="https://go.2gis.com/DSauk" target="_blank" rel="noopener noreferrer">МЫ НА 2GIS ↗</a>
+    <a class="btn btn-outline" href="https://yandex.uz/maps/-/CXFGiD6C" target="_blank" rel="noopener noreferrer">ЯНДЕКС КАРТЫ ↗</a>
    </div>
   </div>
  </div>
 </section>
 
-<section class="contact">
+<section class="contact" id="contact">
  <div class="container contact-grid">
   <div class="contact-copy reveal">
-   <span class="eyebrow">LET'S TALK</span>
-   <h2>ТВОЙ ЛЮБИМЫЙ<br><span style="color:#f2b27d">ВКУС ЖДЁТ.</span></h2>
-   <p>Есть вопросы по меню? Позвони нам или открой карту, чтобы построить маршрут до STELIX.</p>
+   <span class="eyebrow">LET'S CONNECT</span>
+   <h2>До встречи<br>в <span style="color:#f0a16b">STELIX.</span></h2>
+   <p>Есть вопросы? Хочешь уточнить наличие любимого напитка? Свяжись с нами или заглядывай в кофейню.</p>
+
    <div class="contact-list">
-    <div class="contact-item"><div class="contact-icon">☎</div><div><small>Телефон</small><strong><a href="tel:+998998376677">+998 99 837 66 77</a></strong></div></div>
-    <div class="contact-item"><div class="contact-icon">⌖</div><div><small>Адрес</small><strong>Sayram street 43, Tashkent</strong></div></div>
+    <div class="contact-item">
+     <div class="contact-icon">☎</div>
+     <div><small>ТЕЛЕФОН</small><strong><a href="tel:+998998376677">+998 99 837 66 77</a></strong></div>
+    </div>
+    <div class="contact-item">
+     <div class="contact-icon">◎</div>
+     <div><small>INSTAGRAM</small><strong><a href="https://www.instagram.com/stelix.drinks/" target="_blank" rel="noopener noreferrer">@stelix.drinks ↗</a></strong></div>
+    </div>
+    <div class="contact-item">
+     <div class="contact-icon">⌖</div>
+     <div><small>АДРЕС</small><strong>Sayram street 43, Tashkent</strong></div>
+    </div>
    </div>
   </div>
+
   <div class="contact-panel reveal">
    <span class="eyebrow">YOUR COFFEE MOMENT</span>
    <h3>Заглянешь сегодня?</h3>
    <p>Выбирай любимый напиток и приходи за хорошим настроением.</p>
    <a class="btn" href="tel:+998998376677">Позвонить в STELIX ↗</a>
-   <a class="btn btn-outline" href="https://go.2gis.com/DSauk" target="_blank" rel="noopener">Построить маршрут ↗</a>
+   <a class="btn btn-outline" href="https://go.2gis.com/DSauk" target="_blank" rel="noopener noreferrer">Построить маршрут ↗</a>
   </div>
  </div>
 </section>
@@ -347,12 +383,18 @@ footer{background:#1a1b17;color:white;padding:30px 0}
 
 <footer>
  <div class="container footer-inner">
-  <a href="#home" class="brand"><img src="logo.jpg" alt="STELIX"><span><strong>STELIX</strong><small>COFFEE • BUBBLE TEA</small></span></a>
+  <a href="#home" class="brand">
+   <img src="logo.jpg" alt="STELIX">
+   <span><strong>STELIX</strong><small>COFFEE • BUBBLE TEA</small></span>
+  </a>
+
   <p class="footer-note">© <span id="year"></span> STELIX COFFEE<br>Кофейня твоего настроения ☕</p>
+
   <div class="footer-links">
    <a href="#menu">МЕНЮ</a>
-   <a href="https://go.2gis.com/DSauk" target="_blank" rel="noopener">2GIS ↗</a>
-   <a href="https://yandex.uz/maps/-/CXFGiD6C" target="_blank" rel="noopener">ЯНДЕКС ↗</a>
+   <a href="https://go.2gis.com/DSauk" target="_blank" rel="noopener noreferrer">2GIS ↗</a>
+   <a href="https://yandex.uz/maps/-/CXFGiD6C" target="_blank" rel="noopener noreferrer">ЯНДЕКС ↗</a>
+   <a href="https://www.instagram.com/stelix.drinks/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a>
   </div>
  </div>
 </footer>
@@ -431,7 +473,9 @@ const menuItems = [
 const grid = document.getElementById('menuGrid');
 const filters = document.getElementById('filters');
 
-function formatPrice(value){return value + ' 000';}
+function formatPrice(value){
+  return value + ' 000';
+}
 
 function renderMenu(category='all'){
   const items = menuItems.filter(item=>category==='all'||item.cat===category);
